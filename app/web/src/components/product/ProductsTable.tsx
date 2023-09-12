@@ -84,8 +84,18 @@ return (
                   <td className="py-2 px-4 border-b"><TimeAgo date={product.createdAt ?? new Date()} /></td>
                   <td className="py-2 px-4 border-b">
                     <div className="px-4">
-                       <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(product.id)}>Delete</button>
-                       <button className="mx-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleEdit(product.id)}>Edit</button>
+                       <button 
+                       className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded" 
+                       onClick={() => handleDelete(product.id)}
+                       >
+                        Delete
+                       </button>
+                       <button 
+                       className="mx-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                       onClick={() => handleEdit(product.id)}
+                       >
+                        Edit
+                      </button>
                     </div>
                   </td>
               </tr>

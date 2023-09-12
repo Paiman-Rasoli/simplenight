@@ -8,6 +8,7 @@ interface CloseIconProps {
 const CloseIcon = ({color ,...rest} : CloseIconProps) => {
       return (
          <svg
+            data-testid="close-icon"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -106,6 +107,7 @@ export function Modal({
                   <>
                     {title && (
                       <div
+                        data-testid={title}
                         className={`w-full items-center flex justify-between p-4 ${headerClassName}`}
                         style={headerStyle}>
                         <div className={titleClassName} style={titleStyle}>
