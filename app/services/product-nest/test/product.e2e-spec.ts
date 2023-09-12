@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app/app.module';
+import { AppModule } from '../src/app/app.module';
 
-describe('AppController (e2e)', () => {
+describe('ProductController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -15,22 +15,7 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/graphql (POST)', () => {
-    const query = `
-      query {
-        companies {
-           id
-           name
-     }
-  }
-`;
-    return request(app.getHttpServer())
-      .post('/graphql')
-      .send({
-        operationName: null,
-        variables: {},
-        query: query,
-      })
-      .expect(200);
+  it('/products (GET) returns List of products.', () => {
+    return request(app.getHttpServer()).get('/products').expect(200);
   });
 });
