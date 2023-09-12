@@ -25,3 +25,7 @@ then run the migration using `yarn run typeorm:run-migrations:dev` it will creat
 now run `yarn start:dev` you should see the log in your cmd.
 
 Note: in order to frontend use `NestJs` go to `.env` in web or `constants` folder and update the `SERVICE_TYPE=NEST` and now frontend send request to NestJs backend app.
+
+### A short video 😊.
+
+[d53f9a40-c75f-41f4-82d0-f33301a5c050.webm](https://github.com/Paiman-Rasoli/simplenight/assets/83835010/0443972c-a89c-45d2-838c-d5c7fbdba24d)
