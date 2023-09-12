@@ -1,5 +1,5 @@
 import { configuration } from '@app/module-base';
-import { ProductSchema } from '../company/datastore/product.entity';
+import { ProductSchema } from '../product/datastore/product.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { CreateProductTable1694516046932 } from '../../migrations/1694516046932-create-product-table';
 

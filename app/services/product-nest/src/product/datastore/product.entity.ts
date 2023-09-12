@@ -1,6 +1,5 @@
 import { EntitySchema, EntitySchemaOptions } from 'typeorm';
 import { ProductDomain } from '../product.domain';
-import { INT_ID_COLUMN_OPTIONS } from '@app/module-base';
 
 export type ProductEntity = ProductDomain;
 
@@ -9,7 +8,8 @@ export const productSchema: EntitySchemaOptions<ProductEntity> = {
   tableName: 'products',
   columns: {
     id: {
-      ...INT_ID_COLUMN_OPTIONS,
+      type: 'int',
+      unsigned: true,
       primary: true,
       generated: true,
     },

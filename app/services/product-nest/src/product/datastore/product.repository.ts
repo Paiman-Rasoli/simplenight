@@ -11,11 +11,6 @@ export class ProductRepository extends Repository<ProductEntity> {
     return this.createQueryBuilder();
   }
 
-  async getAllCompanies(): Promise<ProductDomain[]> {
-    const companies = await this.createCompanyQueryBuilder().getMany();
-    return companies?.map((company) => mapEntityToDomain(company));
-  }
-
   async createProduct(input: ProductCreateInput): Promise<ProductDomain> {
     try {
       const newProduct = await this.save(input);
@@ -23,10 +18,5 @@ export class ProductRepository extends Repository<ProductEntity> {
     } catch (err) {
       console.error('Error while saving to db', err);
     }
-  }
-
-  async getCompanyById(id: number): Promise<ProductDomain> {
-    const company = await this.findOneBy({ id: id });
-    return mapEntityToDomain(company);
   }
 }
