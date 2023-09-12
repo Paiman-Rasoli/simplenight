@@ -4,6 +4,7 @@ interface Response<T>{
    data ?: T;
    isLoading: boolean;
    error: any;
+   doRefetch: () => void;
 }
 
 function useFetch<T extends any>(url: string): Response<T> {
@@ -11,6 +12,11 @@ function useFetch<T extends any>(url: string): Response<T> {
   const [data, setData] = useState<T>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<any>(null);
+  const [refetch, setRefetch] = useState<boolean>(false)
+  const doRefetch = () =>  {
+     // set to rerender useEffect
+     setRefetch((prev) => !prev);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,8 +35,8 @@ function useFetch<T extends any>(url: string): Response<T> {
     };
 
     fetchData();
-  }, [url]);
+  }, [url, refetch]);
 
-  return { data, isLoading, error };
+  return { data, isLoading, error , doRefetch};
 }
 export default useFetch;
