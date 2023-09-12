@@ -1,7 +1,7 @@
 import { configuration } from '@app/module-base';
 import { ProductSchema } from '../product/datastore/product.entity';
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { CreateProductTable1694516046932 } from '../../migrations/1694516046932-create-product-table';
+import { CreateProductTable1694525045095 } from '../../migrations/1694525045095-create-product-table';
 
 const dbGeneralConfig = (): DataSourceOptions => {
   const config = configuration();
@@ -36,7 +36,7 @@ const dbGeneralConfig = (): DataSourceOptions => {
 export const dataSourceOptions: DataSourceOptions = {
   ...dbGeneralConfig(),
   entities: [ProductSchema],
-  migrations: [CreateProductTable1694516046932],
+  migrations: [CreateProductTable1694525045095],
   migrationsTableName: 'migrations',
 };
 

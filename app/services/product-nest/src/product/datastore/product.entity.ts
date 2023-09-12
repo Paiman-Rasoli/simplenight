@@ -11,7 +11,7 @@ export const productSchema: EntitySchemaOptions<ProductEntity> = {
       type: 'int',
       unsigned: true,
       primary: true,
-      generated: true,
+      generated: 'increment',
     },
     name: {
       type: 'varchar',
