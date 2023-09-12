@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "../../constants";
+import { BACKEND_SERVICE, BACKEND_URL } from "../../constants";
 import { useState, useEffect } from 'react';
 import { Modal } from "../reusable/Modal";
 import { Product } from "./types";
@@ -36,13 +36,25 @@ export default function EditProduct({ refetch, product, visible, setVisible } : 
        }
       setLoading(true);
       try{
-            const req = await fetch(`${BACKEND_URL}/products`,{
-                method : "PUT",
-                headers : {
-                        "Content-Type" : "application/json"
-                  },
-                 body : JSON.stringify({...data, price : +data?.price, id : product?.id})
-                  });
+         let req;
+         if(BACKEND_SERVICE === "YII"){
+            req = await fetch(`${BACKEND_URL}/products/${product?.id}`,{
+               method : "PUT",
+               headers : {
+                       "Content-Type" : "application/json"
+                 },
+                body : JSON.stringify({...data, price : +data?.price})
+             });
+         }else{
+             req = await fetch(`${BACKEND_URL}/products`,{
+                   method : "PUT",
+                   headers : {
+                       "Content-Type" : "application/json"
+                    },
+                     body : JSON.stringify({...data, price : +data?.price, id : product?.id})
+                 });
+         }
+           
             const res = await req.json();
 
             if(res?.id){

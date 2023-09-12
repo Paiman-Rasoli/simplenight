@@ -10,14 +10,15 @@ class ProductController extends ActiveController {
       public $modelClass = 'app\models\Product';
 
       public function behaviors() {
-          return ArrayHelper::merge([
+          return ArrayHelper::merge(parent::behaviors(),[
              [
                 'class' => Cors::class,
                 'cors' => [
-                  'Origin' => ['http://localhost:3000'],
-                  'Access-Control-Request-Method' => ['GET', 'HEAD', 'PUT', "DELETE","POST"],
+                  'Origin' => ['*'],
+                  'Access-Control-Request-Method' => ['GET', 'HEAD', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+                  'Access-Control-Allow-Headers' => ['Content-Type', 'Authorization'],
                 ]
              ],
-            ], parent::behaviors());
+            ]);
       }
 }
