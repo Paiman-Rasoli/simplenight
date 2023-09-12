@@ -14,9 +14,10 @@ class m230912_051548_create_products_table extends Migration
     {
         $this->createTable('{{%products}}', [
             'id' => $this->primaryKey()->append("AUTO_INCREMENT"),
-            'name' => $this->string(100),
-            'description' => $this->string(),
-            'price' => $this->float()
+            'name' => $this->string()->notNull(),
+            'description' => $this->string()->notNull(),
+            'price' => $this->float()->notNull(),
+            'createdAt' => $this->date()->defaultValue(new \yii\db\Expression('NOW()'))
         ]);
     }
 
