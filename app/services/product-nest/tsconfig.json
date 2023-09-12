@@ -16,6 +16,10 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@app/module-base": ["libs/module-base/index.ts"],
+      "@app/utils": ["libs/utils/index.ts"]
+    }
   }
 }
