@@ -11,31 +11,31 @@ import { ProductService } from './product.service';
 import { DeleteResponse, Product } from './dtos/types.dto';
 import { ProductCreateInput, ProductUpdateInput } from './dtos/inputs.dto';
 
-@Controller()
+@Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
-  @Get('/products')
+  @Get('/')
   async getProducts(): Promise<Product[]> {
     return this.productService.getProducts();
   }
 
-  @Post('/product')
+  @Post('/')
   async createProduct(@Body() body: ProductCreateInput): Promise<Product> {
     return this.productService.create(body);
   }
 
-  @Get('/product/:id')
+  @Get(':id')
   async getProduct(@Param('id') id: number): Promise<Product> {
     return this.productService.getOneProduct(id);
   }
 
-  @Delete('/product/:id')
+  @Delete(':id')
   async deleteProduct(@Param('id') id: number): Promise<DeleteResponse> {
     return this.productService.deleteProduct(id);
   }
 
-  @Put('/product')
+  @Put('/')
   async updateProduct(@Body() body: ProductUpdateInput): Promise<Product> {
     return this.productService.update(body);
   }

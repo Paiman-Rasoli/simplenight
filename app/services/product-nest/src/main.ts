@@ -5,12 +5,7 @@ import { configuration } from 'libs/module-base';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      forbidNonWhitelisted: true,
-      skipMissingProperties: false,
-    }),
-  );
+  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
   const { port, NODE_ENV } = configuration();
   await app.listen(port);
