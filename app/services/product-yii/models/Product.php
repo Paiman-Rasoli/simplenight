@@ -11,7 +11,7 @@ use Yii;
  * @property string|null $name
  * @property string|null $description
  * @property float|null $price
- * @property string|null $createdAr
+ * @property string|null $createdAt
  */
 class Product extends \yii\db\ActiveRecord
 {
