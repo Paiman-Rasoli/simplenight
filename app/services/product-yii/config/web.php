@@ -42,14 +42,19 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'product'],
             ],
         ],
-        */
+        'request' => [
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
+            'cookieValidationKey' => 'spqFqD8NjTRAnBS1JDRGQ3MwE1iTYRGZ',
+        ]
     ],
     'params' => $params,
 ];
