@@ -44,10 +44,12 @@ export default function AddNewProduct({refetch} : AddNewProductProps) {
                   setLoading(false)
                   alert(res?.message[0]);
             }else {
+                  console.warn(res);
                   setLoading(false)
                   alert("Server error occurred");
             }
         }catch(err){
+            console.error(err);
             setLoading(false)
             alert("Server error occurred");
         }

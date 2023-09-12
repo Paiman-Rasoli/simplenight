@@ -1,1 +1,2 @@
-export const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:8080"
+export const BACKEND_SERVICE = process.env.SERVICE_TYPE || "YII" 
+export const BACKEND_URL = BACKEND_SERVICE === "YII" ? process.env.BACKEND_URL_YII || "http://localhost:8080/web" : process.env.BACKEND_URL_NEST || "http://localhost:8080"

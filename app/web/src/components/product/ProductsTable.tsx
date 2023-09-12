@@ -14,8 +14,7 @@ function ProductsTable() {
 
  const handleDelete = (id : number) => {
     fetch(`${BACKEND_URL}/products/${id}`, {method : "DELETE"}).then(async (res) => {
-      const result = await res.json();
-      if(result?.deleted){
+      if( [200, 204, 201].includes(res.status)){
         doRefetch();
         alert("Product deleted successfully.")
       } else{
