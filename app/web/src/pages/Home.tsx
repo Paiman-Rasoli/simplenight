@@ -1,9 +1,9 @@
 import Header from "../components/Header"
-import ProductsTable from "../components/ProductsTable"
+import ProductsTable from "../components/product/ProductsTable"
 
 function Home() {
   return (
-    <div className="main">
+    <div className="main !h-full">
       <Header />
       <ProductsTable />
     </div>
